@@ -5,14 +5,6 @@ header("Content-Type:text/html;charset=UTF-8");//UTF-8
 //-------------通用-------------//
 $NAME = "UPlus";            //名称
 $Module = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/Surge.Module"; //Module
-$Server = "172.0.0.1";      //地址
-$Port = "80";               //端口
-$Password = "Password1024.";//密码
-$Method = "aes-256-cfb";    //方式
-$ProxyRU = ",DIRECT";       //其他
-$DIRECTRU = ",DIRECT";      //其他
-$REJECTRU = ",REJECT";      //其他
-$DNS = ",force-remote-dns"; //其他
 //-------------文件-------------//
 $DefaultFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/Default.txt";
 $DefaultFile  = $DefaultFile . '?Cache='.time();
