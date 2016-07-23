@@ -1,4 +1,4 @@
-###PandaList 是一款 无需配置信息的规则
+###DNSList 是一款 DNS规则
 >UPlus Of PandaList 由 Eval 维护
 >>更新记录:  
 ```
