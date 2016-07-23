@@ -46,15 +46,15 @@ echo "#  \r\n";
 echo "# DNSList Config File [$NAME]\r\n";
 echo "# Last Modified: " . date("Y/m/d") . "\r\n";
 echo "# \r\n";
-echo "[Proxy]\r\n";
-echo "🇨🇳 = custom,$Server,$Port,$Method,$Password,$Module\r\n";
+echo "[Proxy Group]\r\n";
+echo "Proxy = select, DIRECT\r\n";
 //--------------输出------------//
 //Default
 echo "\r\n[Rule]";
 echo"\r\n# Default\r\n";
 while(!feof($Default))
 {
-echo trim(fgets($Default)).$DIRECTRU."\r\n"; 
+echo trim(fgets($Default)).",DIRECT"."\r\n"; 
 }
 {
 fclose($Default);
@@ -63,7 +63,7 @@ fclose($Default);
 echo"# PROXY\r\n";
 while(!feof($Proxy))
 {
-echo trim(fgets($Proxy)).$DIRECTRU.$DNS."\r\n"; 
+echo trim(fgets($Proxy)).",DIRECT,force-remote-dns"."\r\n"; 
 }
 {
 fclose($Proxy);
@@ -72,7 +72,7 @@ fclose($Proxy);
 echo"# DIRECT\r\n";
 while(!feof($DIRECT))
 {
-echo trim(fgets($DIRECT)).$DIRECTRU."\r\n"; 
+echo trim(fgets($DIRECT)).",DIRECT"."\r\n"; 
 }
 {
 fclose($DIRECT);
@@ -81,7 +81,7 @@ fclose($DIRECT);
 echo"# REJECT\r\n";
 while(!feof($REJECT))
 {
-echo trim(fgets($REJECT)).$REJECTRU."\r\n"; 
+echo trim(fgets($REJECT)).",REJECT"."\r\n"; 
 }
 {
 fclose($REJECT);
