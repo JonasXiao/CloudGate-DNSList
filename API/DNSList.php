@@ -29,9 +29,6 @@ $DIRECT = fopen($DIRECTFile,"r");
 $REJECTFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/REJECT.txt";
 $REJECTFile  = $REJECTFile . '?Cache='.time();
 $REJECT = fopen($REJECTFile,"r");
-$HOSTSFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/HOSTS.txt";
-$HOSTSFile  = $HOSTSFile . '?Cache='.time();
-$HOSTS = fopen($HOSTSFile,"r");
 //-------------下载-------------//
 $File = "PANDA.Conf";//下载文件名称
 header("cache-control:no-cache,must-revalidate");//No-Cache
@@ -51,16 +48,6 @@ echo "# \r\n";
 echo "[Proxy]\r\n";
 echo "🇨🇳 = custom,$Server,$Port,$Method,$Password,$Module\r\n";
 //--------------输出------------//
-//HOSTS
-echo "[Host]";
-echo"\r\n# HOSTS\r\n";
-while(!feof($HOSTS))
-{
-echo fgets($HOSTS)."";
-}
-{
-fclose($HOSTS);
-}
 //Default
 echo "\r\n[Rule]";
 echo"\r\n# Default\r\n";
@@ -79,15 +66,6 @@ echo trim(fgets($Proxy)).$DIRECTRU.$DNS."\r\n";
 }
 {
 fclose($Proxy);
-}
-//GFWList
-echo"# GFWList\r\n";
-while(!feof($GFWList))
-{
-echo trim(fgets($GFWList)).$DIRECTRU.$DNS."\r\n"; 
-}
-{
-fclose($GFWList);
 }
 //DIRECT
 echo"# DIRECT\r\n";
