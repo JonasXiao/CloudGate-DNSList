@@ -42,6 +42,7 @@ echo "[Proxy Group]\r\n";
 echo "Proxy = select, DIRECT\r\n";
 //--------------输出------------//
 //Default
+if($Default){//判断打开错误
 echo "\r\n[Rule]";
 echo"\r\n# Default\r\n";
 while(!feof($Default))
@@ -51,7 +52,11 @@ echo trim(fgets($Default)).",DIRECT"."\r\n";
 {
 fclose($Default);
 }
+}else {
+  echo "下载失败!";//
+}
 //PROXY
+if($Proxy){//判断打开错误
 echo"# PROXY\r\n";
 while(!feof($Proxy))
 {
@@ -60,7 +65,11 @@ echo trim(fgets($Proxy)).",DIRECT,force-remote-dns"."\r\n";
 {
 fclose($Proxy);
 }
+}else {
+  echo "下载失败!";//
+}
 //DIRECT
+if($DIRECT){//判断打开错误
 echo"# DIRECT\r\n";
 while(!feof($DIRECT))
 {
@@ -69,7 +78,11 @@ echo trim(fgets($DIRECT)).",DIRECT"."\r\n";
 {
 fclose($DIRECT);
 }
+}else {
+  echo "下载失败!";//
+}
 //REJECT
+if($REJECT){//判断打开错误
 echo"# REJECT\r\n";
 while(!feof($REJECT))
 {
@@ -77,6 +90,9 @@ echo trim(fgets($REJECT)).",REJECT"."\r\n";
 }
 {
 fclose($REJECT);
+}
+}else {
+  echo "下载失败!";//
 }
 //Other
 echo"# Other\r\n";
